@@ -1,0 +1,11 @@
+{
+  "name": "FakeSmmtService",
+  "version": "0.1.0",
+  "description": "Fake SMMT service used during MOT Recalls feature development and testing.",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcin Duszynski <marcin@duszynski.pl>",
+  "license": "ISC"
+}
