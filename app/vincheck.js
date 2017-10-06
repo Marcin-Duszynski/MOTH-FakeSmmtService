@@ -1,5 +1,6 @@
 'use strict'
 
+const config = require('./config');
 const vehicles = require('./vehicles');
 const express = require('express');
 const app = express();
@@ -15,11 +16,30 @@ app.post('/vincheck', function(req, res){
     console.log("Request body:");
     console.log(req.body);
 
-    var vehicle = vehicles.getRecall(req.body['VIN'], req.body['Marque']);
-    console.log("Response body:");
-    console.log(vehicle);
+    var vin = req.body['VIN'];
+    var marque = req.body['Marque'];
+    var apiKey = req.body['apikey'];
 
-    res.send(vehicle);
-})
+    if (apiKey === config.apiKey){
+        var vinCheckResponse = vehicles.getRecall(vin, marque);
+    } else {
+        var vinCheckResponse = wrongApiKeyResponse(vin);
+    };
+
+    console.log("Response body:");
+    console.log(vinCheckResponse);
+
+    res.send(vinCheckResponse);
+});
+
+function wrongApiKeyResponse(){
+    return {
+        "status": 401,
+        "status_description": "Unauthorized",
+        "vin": "AISXXXTEST1239607",
+        "vin_recall_status": "",
+        "last_update": ""
+    }
+}
 
 exports.app = app;
