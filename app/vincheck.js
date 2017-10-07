@@ -32,11 +32,11 @@ app.post('/vincheck', function(req, res){
     res.send(vinCheckResponse);
 });
 
-function wrongApiKeyResponse(){
+function wrongApiKeyResponse(vin){
     return {
         "status": 401,
         "status_description": "Unauthorized",
-        "vin": "AISXXXTEST1239607",
+        "vin": `${vin}`,
         "vin_recall_status": "",
         "last_update": ""
     }

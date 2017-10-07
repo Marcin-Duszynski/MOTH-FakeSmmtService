@@ -13,41 +13,48 @@ var vehiclesDictionary = {
             "vin": "AISXXXTEST1239607",
             "vin_recall_status": "BRAKES",
             "last_update": "19022015"
+        },
+        "AISXXXTEST1239617": {
+            "status": 200,
+            "status_description":"No Recall Outstanding",
+            "vin": "AISXXXTEST1239617",
+            "vin_recall_status": "",
+            "last_update": "19022015"
         }
     }
 };
 
-function invalidMarque(vin){
-    return {
+var invalidMarqueTemplate = {
         "status": 402,
         "status_description": "Bad Request - Invalid Marque",
-        "vin": `${vin}`,
+        "vin": "",
         "vin_recall_status": "",
         "last_update": ""
-    }
 };
 
-function unknownVin(vin){
-    return {
+var unknownVinTemplate = {
         "status": 200,
         "status_description":"No Recall Outstanding",
-        "vin": `${vin}`,
+        "vin": "",
         "vin_recall_status": "",
         "last_update": "19022015"
-    }
 };
 
 exports.getRecall = (vin, marque) => {
-    var vehiclesWithMarque = vehiclesDictionary[marque.toUpperCase()];
+    var vehiclesMarque = vehiclesDictionary[marque.toUpperCase()];
+    var recall;
 
-    if (vehiclesWithMarque === undefined) {
-        return invalidMarque(vin);
-    };
+    if (vehiclesMarque === undefined) {
+        recall = invalidMarqueTemplate;
+    }
+    else {
+        var recall = vehiclesMarque[vin.toUpperCase()];
+        if (recall === undefined) {
+            recall = unknownVinTemplate;
+        };
+    }
 
-    var vehicle = vehiclesWithMarque[vin.toUpperCase()];
-    if (vehicle === undefined) {
-        return unknownVin(vin);
-    };
+    recall.vin = vin;
 
-    return vehicle;
+    return recall;
 }
