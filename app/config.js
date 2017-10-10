@@ -1,1 +1,3 @@
-exports.apiKey = undefined;
+'use strict'
+
+exports.apiKey = undefined

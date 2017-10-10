@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# serverless framework
+.serverless/
+
+.DS_Store
