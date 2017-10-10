@@ -21,20 +21,25 @@ exports.middleware = (req, res, next) => {
   console.log('Request Type:', reqMethod)
   console.log('Request Path:', reqPath)
 
-  if (reqPath === path.marquePath) {
-    check(req, next, () => {
-      res.status(200).send(fakeResponse.wrongApiKeyMarque)
-    })
-  } else if (reqPath === path.serviceAvailabilityPath) {
-    check(req, next, () => {
-      res.status(200).send(fakeResponse.wrongApiKeyServiceAvailability)
-    })
-  } else if (reqPath === path.vinCheckPath) {
-    check(req, next, () => {
-      var vin = req.body['VIN']
-      res.status(200).send(fakeResponse.generateWrongApiKeyVinCheck(vin))
-    })
-  } else {
-    next()
+  switch (reqPath) {
+    case path.marquePath:
+      check(req, next, () => {
+        res.status(200).send(fakeResponse.wrongApiKeyMarque)
+      })
+      break
+    case path.serviceAvailabilityPath:
+      check(req, next, () => {
+        res.status(200).send(fakeResponse.wrongApiKeyServiceAvailability)
+      })
+      break
+    case path.vinCheckPath:
+      check(req, next, () => {
+        var vin = req.body['VIN']
+        res.status(200).send(fakeResponse.generateWrongApiKeyVinCheck(vin))
+      })
+      break
+    default:
+      next()
+      break
   }
 }
