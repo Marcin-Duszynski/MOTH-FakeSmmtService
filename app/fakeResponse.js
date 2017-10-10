@@ -1,13 +1,6 @@
 'use strict'
 
-exports.serviceAvailability = () => {
-  return {
-    'status': 250,
-    'status_description': 'Service Available'
-  }
-}
-
-exports.wrongApiKeyVinCheck = (vin) => {
+exports.generateWrongApiKeyVinCheck = (vin) => {
   return {
     'status': 401,
     'status_description': 'Unauthorized',
@@ -17,56 +10,55 @@ exports.wrongApiKeyVinCheck = (vin) => {
   }
 }
 
-exports.wrongApiKeyServiceAvailability = (vin) => {
-  return {
-    'status': 401,
-    'status_description': 'Unauthorized'
-  }
+exports.serviceAvailability = {
+  'status': 250,
+  'status_description': 'Service Available'
 }
 
-exports.wrongApiKeyMarque = (vin) => {
-  return {
-    'status': 401,
-    'status_description': 'Unauthorized',
-    'marquelist': []
-  }
+exports.wrongApiKeyServiceAvailability = {
+  'status': 401,
+  'status_description': 'Unauthorized'
 }
 
-exports.marque = () => {
-  return {
-    'status': 203,
-    'status_description': 'Marque List',
-    'marquelist': [
-      {
-        'Name': 'Taylor'
-      },
-      {
-        'Name': 'Bruin'
-      },
-      {
-        'Name': 'Hartley'
-      },
-      {
-        'Name': 'Malin'
-      },
-      {
-        'Name': 'Masterson'
-      },
-      {
-        'Name': 'Tucker'
-      },
-      {
-        'Name': 'Martin'
-      },
-      {
-        'Name': 'Dorchester'
-      },
-      {
-        'Name': 'Weymouth'
-      },
-      {
-        'Name': 'Mcdonough'
-      }
-    ]
-  }
+exports.wrongApiKeyMarque = {
+  'status': 401,
+  'status_description': 'Unauthorized',
+  'marquelist': []
+}
+
+exports.marque = {
+  'status': 203,
+  'status_description': 'Marque List',
+  'marquelist': [
+    {
+      'Name': 'Taylor'
+    },
+    {
+      'Name': 'Bruin'
+    },
+    {
+      'Name': 'Hartley'
+    },
+    {
+      'Name': 'Malin'
+    },
+    {
+      'Name': 'Masterson'
+    },
+    {
+      'Name': 'Tucker'
+    },
+    {
+      'Name': 'Martin'
+    },
+    {
+      'Name': 'Dorchester'
+    },
+    {
+      'Name': 'Weymouth'
+    },
+    {
+      'Name': 'Mcdonough'
+    }
+  ]
 }

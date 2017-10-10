@@ -7,41 +7,27 @@ const app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+const apiKeyVerifier = require('./apiKeyVerifier')
+app.use(apiKeyVerifier.middleware)
+app.disable('x-powered-by')
+
 const vehicles = require('./vehicles')
 const fakeResponse = require('./fakeResponse')
-const apiKeyVerifier = require('./apiKeyVerifier')
+const path = require('./path')
 
-app.post('/ServiceAvailability', function (req, res) {
-  var response = apiKeyVerifier.check(req.body, () => {
-    return fakeResponse.serviceAvailability()
-  }, () => {
-    return fakeResponse.wrongApiKeyServiceAvailability()
-  })
-
-  res.status(200).send(response)
+app.post(path.serviceAvailabilityPath, function (req, res) {
+  res.status(200).send(fakeResponse.serviceAvailability)
 })
 
-app.post('/marque', function (req, res) {
-  var response = apiKeyVerifier.check(req.body, () => {
-    return fakeResponse.marque()
-  }, () => {
-    return fakeResponse.wrongApiKeyMarque()
-  })
-
-  res.status(200).send(response)
+app.post(path.marquePath, function (req, res) {
+  res.status(200).send(fakeResponse.marque)
 })
 
-app.post('/vincheck', function (req, res) {
+app.post(path.vinCheckPath, function (req, res) {
   var vin = req.body['VIN']
   var marque = req.body['Marque']
 
-  var response = apiKeyVerifier.check(req.body, () => {
-    return vehicles.getRecall(vin, marque)
-  }, () => {
-    return fakeResponse.wrongApiKeyVinCheck(vin)
-  })
-
-  res.status(200).send(response)
+  res.status(200).send(vehicles.getRecall(vin, marque))
 })
 
 exports.app = app
