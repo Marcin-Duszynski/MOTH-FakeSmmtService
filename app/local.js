@@ -10,4 +10,4 @@ smmt.app.listen(3000, function () {
   console.log(`Api access key: ${config.apiKey}`)
 })
 
-module.exports = smmt
+module.exports = smmt.app

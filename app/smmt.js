@@ -17,10 +17,12 @@ const path = require('./path')
 
 app.post(path.serviceAvailabilityPath, function (req, res) {
   res.status(200).send(fakeResponse.serviceAvailability)
+  console.log('Response was send by serviceAvailability')
 })
 
 app.post(path.marquePath, function (req, res) {
   res.status(200).send(fakeResponse.marque)
+  console.log('Response was send by marque')
 })
 
 app.post(path.vinCheckPath, function (req, res) {
@@ -28,6 +30,7 @@ app.post(path.vinCheckPath, function (req, res) {
   var marque = req.body['Marque']
 
   res.status(200).send(vehicles.getRecall(vin, marque))
+  console.log('Response was send by vinCheck')
 })
 
 exports.app = app
