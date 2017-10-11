@@ -1,37 +1,27 @@
-'use strict'
+const serverless = require('serverless-http');
+const express = require('express');
+const bodyParser = require('body-parser');
+const apiKeyVerifier = require('./apiKeyVerifier');
+const vehicles = require('./vehicles');
+const fakeResponse = require('./fakeResponse');
+const path = require('./path');
 
-const serverless = require('serverless-http')
-const express = require('express')
-const app = express()
+const app = express();
+app.use(bodyParser.json());
+app.use(apiKeyVerifier.middleware);
+app.disable('x-powered-by');
 
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
+app.post(path.serviceAvailabilityPath, (req, res) => {
+  res.status(200).send(fakeResponse.serviceAvailability);
+});
 
-const apiKeyVerifier = require('./apiKeyVerifier')
-app.use(apiKeyVerifier.middleware)
-app.disable('x-powered-by')
+app.post(path.marquePath, (req, res) => {
+  res.status(200).send(fakeResponse.marque);
+});
 
-const vehicles = require('./vehicles')
-const fakeResponse = require('./fakeResponse')
-const path = require('./path')
+app.post(path.vinCheckPath, (req, res) => {
+  res.status(200).send(vehicles.getRecall(req.body.VIN, req.body.Marque));
+});
 
-app.post(path.serviceAvailabilityPath, function (req, res) {
-  res.status(200).send(fakeResponse.serviceAvailability)
-  console.log('Response was send by serviceAvailability')
-})
-
-app.post(path.marquePath, function (req, res) {
-  res.status(200).send(fakeResponse.marque)
-  console.log('Response was send by marque')
-})
-
-app.post(path.vinCheckPath, function (req, res) {
-  var vin = req.body['VIN']
-  var marque = req.body['Marque']
-
-  res.status(200).send(vehicles.getRecall(vin, marque))
-  console.log('Response was send by vinCheck')
-})
-
-exports.app = app
-exports.handler = serverless(app)
+exports.app = app;
+exports.handler = serverless(app);

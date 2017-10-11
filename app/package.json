@@ -4,19 +4,24 @@
   "description": "Fake SMMT service used during MOT Recalls feature development and testing.",
   "main": "lambda.js",
   "scripts": {
-    "start": "node local.js",
-    "test": "mocha --timeout 10000"
+    "debug": "node local.js",
+    "test": "mocha --timeout 500"
   },
   "author": "Marcin Duszynski <marcin@duszynski.pl>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "serverless-http": "^1.5.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "mocha": "^4.0.1"
   }
 }

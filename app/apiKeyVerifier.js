@@ -1,45 +1,39 @@
-'use strict'
+const config = require('./config');
+const path = require('./path');
+const fakeResponse = require('./fakeResponse');
 
-const config = require('./config')
-const path = require('./path')
-const fakeResponse = require('./fakeResponse')
-
-function check (req, next, failureCallback) {
-  var apiKey = req.body['apikey']
+function check(req, next, failureCallback) {
+  const apiKey = req.body.apikey;
 
   if (apiKey === config.apiKey) {
-    next()
+    next();
   } else {
-    return failureCallback()
+    failureCallback();
   }
 }
 
 exports.middleware = (req, res, next) => {
-  var reqMethod = req.method
-  var reqPath = req.path
-
-  console.log('Request Type:', reqMethod)
-  console.log('Request Path:', reqPath)
+  const reqPath = req.path;
 
   switch (reqPath) {
     case path.marquePath:
       check(req, next, () => {
-        res.status(200).send(fakeResponse.wrongApiKeyMarque)
-      })
-      break
+        res.status(200).send(fakeResponse.wrongApiKeyMarque);
+      });
+      break;
     case path.serviceAvailabilityPath:
       check(req, next, () => {
-        res.status(200).send(fakeResponse.wrongApiKeyServiceAvailability)
-      })
-      break
+        res.status(200).send(fakeResponse.wrongApiKeyServiceAvailability);
+      });
+      break;
     case path.vinCheckPath:
       check(req, next, () => {
-        var vin = req.body['VIN']
-        res.status(200).send(fakeResponse.generateWrongApiKeyVinCheck(vin))
-      })
-      break
+        const vin = req.body.VIN;
+        res.status(200).send(fakeResponse.generateWrongApiKeyVinCheck(vin));
+      });
+      break;
     default:
-      next()
-      break
+      next();
+      break;
   }
-}
+};

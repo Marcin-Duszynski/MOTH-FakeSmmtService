@@ -1,3 +1,12 @@
 module.exports = {
-    "extends": "standard"
+    'env': {
+        'node': true,
+        'es6': true
+    },
+    'extends': 'airbnb',
+    'rules': {
+        'import/no-extraneous-dependencies': ['error', {
+            'devDependencies': ['**/*.test.js', '**/*.spec.js']
+        }]
+    }
 };
