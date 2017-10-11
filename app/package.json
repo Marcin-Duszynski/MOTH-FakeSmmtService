@@ -5,7 +5,9 @@
   "main": "lambda.js",
   "scripts": {
     "debug": "node local.js",
-    "test": "mocha --timeout 500"
+    "pretest": "npm run lint",
+    "test": "mocha --timeout 500",
+    "lint": "eslint ."
   },
   "author": "Marcin Duszynski <marcin@duszynski.pl>",
   "license": "ISC",

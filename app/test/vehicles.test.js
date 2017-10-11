@@ -1,6 +1,9 @@
 /* eslint-env mocha */
 
+const chai = require('chai');
 const vehicles = require('../vehicles');
+
+chai.should();
 
 describe('When checking if vehicle has a outstanding recall', () => {
   describe('and valid VIN and MARQUE is provided', () => {
