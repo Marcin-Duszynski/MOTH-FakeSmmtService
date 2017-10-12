@@ -13,7 +13,7 @@ function check(req, next, failureCallback) {
 }
 
 exports.middleware = (req, res, next) => {
-  const reqPath = req.path;
+  const reqPath = req.path.toLowerCase();
 
   switch (reqPath) {
     case path.marquePath:
@@ -28,7 +28,7 @@ exports.middleware = (req, res, next) => {
       break;
     case path.vinCheckPath:
       check(req, next, () => {
-        const vin = req.body.VIN;
+        const { vin } = req.body;
         res.status(200).send(fakeResponse.generateWrongApiKeyVinCheck(vin));
       });
       break;

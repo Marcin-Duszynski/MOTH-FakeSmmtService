@@ -11,6 +11,8 @@ module.exports = {
         }],
         "no-console": ["error", {
              allow: ["warn", "error", "info"] 
-        }]
+        }],
+        "no-restricted-syntax": ["warn", "ForInStatement", "LabeledStatement", "WithStatement"],
+        "no-extra-semi": ["warn"]
     }
 };

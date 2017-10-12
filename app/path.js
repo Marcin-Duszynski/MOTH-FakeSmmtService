@@ -1,3 +1,3 @@
 exports.vinCheckPath = '/vincheck';
-exports.serviceAvailabilityPath = '/ServiceAvailability';
+exports.serviceAvailabilityPath = '/serviceavailability';
 exports.marquePath = '/marque';
