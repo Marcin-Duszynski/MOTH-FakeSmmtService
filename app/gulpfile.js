@@ -1,4 +1,3 @@
-
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const mocha = require('gulp-mocha');
@@ -33,12 +32,10 @@ gulp.task('retire', () => {
   const child = spawn('node_modules/.bin/retire', ['-n', '-p'], {
     cwd: process.cwd(),
   });
-
   child.stdout.setEncoding('utf8');
   child.stdout.on('data', (data) => {
     gutil.log(data);
   });
-
   child.stderr.setEncoding('utf8');
   child.stderr.on('data', (data) => {
     gutil.log(gutil.colors.red(data));
