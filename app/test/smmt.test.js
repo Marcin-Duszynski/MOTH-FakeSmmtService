@@ -2,8 +2,8 @@
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const smmt = require('../smmt');
-const config = require('../config');
+const smmt = require('../src/smmt');
+const config = require('../src/config');
 
 chai.use(chaiHttp);
 chai.should();

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const chai = require('chai');
-const vehicles = require('../vehicles');
+const vehicles = require('../src/vehicles');
 
 chai.should();
 

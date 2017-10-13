@@ -4,12 +4,14 @@
   "description": "Fake SMMT service used during MOT Recalls feature development and testing.",
   "main": "lambda.js",
   "scripts": {
-    "debug": "node local.js",
+    "debug": "node src/local.js",
     "pretest": "npm run lint",
     "test": "mocha --timeout 1000",
+    "retire": "retire",
     "lint": "eslint ."
   },
-  "author": "Marcin Duszynski <marcin@duszynski.pl>",
+  "author": "Marcin Duszynski",
+  "url" : "https://github.com/Marcin-Duszynski/MOTH-FakeSmmtService",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -24,6 +26,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "retire": "^1.4.0"
   }
 }
