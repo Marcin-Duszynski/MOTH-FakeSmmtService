@@ -7,12 +7,11 @@ module.exports = {
     'extends': 'airbnb',
     'rules': {
         'import/no-extraneous-dependencies': ['error', {
-            'devDependencies': ['**/*.test.js', '**/*.spec.js']
+            'devDependencies': ['**/*.test.js', '**/*.spec.js', 'gulpfile.js', '*/gulpfile.js']
         }],
         "no-console": ["error", {
              allow: ["warn", "error", "info"] 
         }],
-        "no-restricted-syntax": ["warn", "ForInStatement", "LabeledStatement", "WithStatement"],
-        "no-extra-semi": ["warn"]
+        "no-restricted-syntax": ["warn", "ForInStatement", "LabeledStatement", "WithStatement"]
     }
 };

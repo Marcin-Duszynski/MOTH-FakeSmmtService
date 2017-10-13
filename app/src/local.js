@@ -1,4 +1,4 @@
-const smmt = require('./smmt');
+const smmt = require('./smmtService');
 const config = require('./config');
 
 config.apiKey = 'localApiKey';
