@@ -5,8 +5,9 @@
   "main": "lambda.js",
   "scripts": {
     "start": "node src/local.js",
-    "test": "mocha --exit",
-    "prod": "npm prune --production; npm install --production"
+    "test": "nyc mocha --exit; nyc check-coverage --lines 90 --functions 90 --branches 90",
+    "prod": "npm prune --production; npm install --production",
+    "report": "nyc report --reporter=html"
   },
   "author": "Marcin Duszynski",
   "url": "https://github.com/Marcin-Duszynski/MOTH-FakeSmmtService",
@@ -33,6 +34,7 @@
     "gulp-mocha": "^4.3.1",
     "gulp-util": "^3.0.8",
     "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
     "retire": "^1.4.0"
   }
 }
