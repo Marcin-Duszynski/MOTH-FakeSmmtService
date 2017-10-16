@@ -3,6 +3,10 @@ Fake SMMT service written in Node.js and deployed as a lambda function on AWS.
 
 Assigned JIRA: BL-6132
 
+# [Software Development Quality Assurance Policy](docs/NodejsDevQuality.md)
+
+# Documentation
+
 ##
 ### Supported SMMT endpoints
 
@@ -37,7 +41,7 @@ npm install
 npm start
 ```
 
-It will start express.js app on port 3000
+It will start express.js app on localhost port 3000
 
 ##
 ### How to develop
@@ -57,17 +61,20 @@ gulp lint:watch
 gulp retire:watch
 ```
 Gulp cli is required!!!
+```
+npm install gulp-cli -g
+```
 
 Happy coding :)
 
 ##
 ### Provided npm commands
-* npm start
-* npm test 
+* npm start -> It will start web app on localhost:3000 using debug api key
+* npm test -> It will execute unit, integration tests and unit tests code coverage check.
 * npm run prod -> Remove dev dependencies and install production dependencies if needed
 
 ### Provided Gulp commands
-* gulp -> Execute once tests, linter and retire lib check
+* gulp -> Execute tests, linter and retire lib check (without watchers)
 * gulp test
 * gulp lint
 * gulp retire
