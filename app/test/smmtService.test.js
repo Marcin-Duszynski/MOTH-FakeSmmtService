@@ -11,10 +11,7 @@ describe('SMMT service', () => {
       chai.request(service.app)
         .get('/Incorrect')
         .end((err, res) => {
-          if (err) done(err);
-
           res.should.have.status(404);
-
           done();
         });
     });
