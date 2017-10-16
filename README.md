@@ -6,7 +6,6 @@ Assigned JIRA: BL-6132
 # [Software Development Quality Assurance Policy](docs/NodejsDevQuality.md)
 
 # Documentation
-
 ##
 ### Supported SMMT endpoints
 
@@ -65,8 +64,6 @@ Gulp cli is required!!!
 npm install gulp-cli -g
 ```
 
-Happy coding :)
-
 ##
 ### Provided npm commands
 * npm start -> It will start web app on localhost:3000 using debug api key
@@ -75,6 +72,12 @@ Happy coding :)
 
 ### Provided Gulp commands
 * gulp -> Execute tests, linter and retire lib check (without watchers)
+* npm start
+* npm test 
+* npm run prod -> Remove dev dependencies and install production dependencies if needed
+
+### Provided Gulp commands
+* gulp -> Execute once tests, linter and retire lib check
 * gulp test
 * gulp lint
 * gulp retire
