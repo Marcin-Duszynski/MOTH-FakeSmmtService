@@ -1,6 +1,8 @@
-const config = require('./config');
+const configLoader = require('./configLoader');
 const path = require('./path');
 const fakeResponse = require('./fakeResponse');
+
+const config = configLoader.load(process.env);
 
 function check(req, next, failureCallback) {
   const apiKey = req.body.apikey;

@@ -1,13 +1,25 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const service = require('../src/smmtService');
-const config = require('../src/config');
+const service = require('../src/localSmmtService');
 
 chai.use(chaiHttp);
 chai.should();
-config.apiKey = 'localApiKey';
 
 describe('SMMT service', () => {
+  describe('When incorrect endpoint is triggered', () => {
+    it('then 404 http code is returned.', (done) => {
+      chai.request(service.app)
+        .get('/Incorrect')
+        .end((err, res) => {
+          if (err) done(err);
+
+          res.should.have.status(404);
+
+          done();
+        });
+    });
+  });
+
   describe('/ServiceAvailability', () => {
     it('when correct api key is provided service status is returned.', (done) => {
       chai.request(service.app)
