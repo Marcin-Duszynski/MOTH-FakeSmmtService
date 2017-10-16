@@ -5,7 +5,7 @@
   "main": "lambda.js",
   "scripts": {
     "start": "node src/localSmmtService.js",
-    "test": "nyc mocha --exit; nyc check-coverage --lines 90 --functions 90 --branches 90",
+    "test": "nyc --all mocha --exit",
     "prod": "npm prune --production; npm install --production",
     "report": "nyc report --reporter=html"
   },
@@ -36,5 +36,21 @@
     "mocha": "^4.0.1",
     "nyc": "^11.2.1",
     "retire": "^1.4.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 90,
+    "statements":90,
+    "functions": 90,
+    "branches": 90,
+    "include": [
+      "src/**/*.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "cache": true,
+    "all": true
   }
 }
