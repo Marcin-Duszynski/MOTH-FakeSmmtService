@@ -97,7 +97,7 @@ describe('SMMT service', () => {
           .send({
             apikey: 'localApiKey',
             vin: 'AISXXXTEST1239607',
-            Marque: 'BRUIN',
+            Marque: 'RENAULT',
           })
           .end((err, res) => {
             if (err) done(err);
@@ -119,7 +119,7 @@ describe('SMMT service', () => {
           .send({
             apikey: 'localApiKey',
             vin: 'AISXXXTEST1239617',
-            Marque: 'BRUIN',
+            Marque: 'AUDI',
           })
           .end((err, res) => {
             if (err) done(err);
