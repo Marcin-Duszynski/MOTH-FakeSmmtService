@@ -1,0 +1,5 @@
+test/**
+dist/**
+coverage/**
+serverless.yml
+src/localSmmtService.js

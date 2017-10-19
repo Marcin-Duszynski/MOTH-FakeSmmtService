@@ -12,7 +12,7 @@
     "lint:watch": "nodemon --exec \"npm run lint\"",
     "prod": "npm prune --production && npm install --production",
     "report": "nyc report --reporter=html",
-    "build": "mkdir -p ./dist && npm run prod && zip -r ./dist/fakeSmmtServiceTemp-${BUILDSTAMP}.zip node_modules/ src/"
+    "build": "mkdir -p ./dist && npm run prod && zip -r ./dist/fakeSmmtService-${BUILDSTAMP}.zip node_modules/ src/"
   },
   "author": "Marcin Duszynski",
   "url": "https://github.com/dvsa/vehicle-recalls-fake-smmt-service",
@@ -37,6 +37,7 @@
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
+    "pack-zip": "^0.2.2",
     "retire": "^1.4.0"
   },
   "nyc": {
