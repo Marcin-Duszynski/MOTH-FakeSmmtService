@@ -27,34 +27,16 @@ exports.marque = {
   status_description: 'Marque List',
   marquelist: [
     {
-      Name: 'Taylor',
+      Name: 'RENAULT',
     },
     {
-      Name: 'Bruin',
+      Name: 'VOLKSWAGEN',
     },
     {
-      Name: 'Hartley',
+      Name: 'BMW',
     },
     {
-      Name: 'Malin',
-    },
-    {
-      Name: 'Masterson',
-    },
-    {
-      Name: 'Tucker',
-    },
-    {
-      Name: 'Martin',
-    },
-    {
-      Name: 'Dorchester',
-    },
-    {
-      Name: 'Weymouth',
-    },
-    {
-      Name: 'Mcdonough',
+      Name: 'AUDI',
     },
   ],
 };

@@ -64,7 +64,7 @@ describe('SMMT service', () => {
           res.body.should.have.property('status').eql(203);
           res.body.should.have.property('status_description').eql('Marque List');
           res.body.should.have.property('marquelist').to.be.an('array');
-          res.body.marquelist.should.have.lengthOf(10);
+          res.body.marquelist.should.have.lengthOf(4);
 
           done();
         });
