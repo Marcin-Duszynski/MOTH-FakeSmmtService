@@ -105,7 +105,7 @@ describe('SMMT service', () => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             res.body.should.have.property('status').eql(201);
-            res.body.should.have.property('status_description').eql('Recall Outstanding');
+            res.body.should.have.property('status_description').eql('Recall outstanding');
             res.body.should.have.property('vin').eql('AISXXXTEST1239607');
             res.body.should.have.property('vin_recall_status').eql('BRAKES');
 
@@ -127,7 +127,7 @@ describe('SMMT service', () => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             res.body.should.have.property('status').eql(200);
-            res.body.should.have.property('status_description').eql('No Recall Outstanding');
+            res.body.should.have.property('status_description').eql('No recall found');
             res.body.should.have.property('vin').eql('AISXXXTEST1239617');
             res.body.should.have.property('vin_recall_status').eql('');
 

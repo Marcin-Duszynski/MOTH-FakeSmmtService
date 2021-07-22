@@ -23,7 +23,7 @@ app.post(path.marquePath, (req, res) => {
 });
 
 app.post(path.vinCheckPath, (req, res) => {
-  const responsePromise = vehicles.getRecall(req.body.vin, req.body.marque);
+  const responsePromise = vehicles.getRecall(req.body.vin, req.body.Marque);
   responsePromise.then((responseBody) => {
     res.status(200).send(responseBody);
   });
