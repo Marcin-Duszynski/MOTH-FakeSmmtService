@@ -5,7 +5,7 @@ chai.should();
 
 describe('When checking if vehicle has a outstanding recall', () => {
   describe('and valid VIN and MARQUE is provided', () => {
-    it('and user provide upper case text and vehicle has a recall and "Recall Outstanding" message is provided.', (done) => {
+    it('and user provide upper case text and vehicle has a recall and "Recall outstanding" message is provided.', (done) => {
       const vin = 'AISXXXTEST1239607';
       const marque = 'RENAULT';
 
@@ -13,20 +13,20 @@ describe('When checking if vehicle has a outstanding recall', () => {
 
       recallPromise.then((recall) => {
         recall.should.have.property('status').eql(201);
-        recall.should.have.property('status_description').eql('Recall Outstanding');
+        recall.should.have.property('status_description').eql('Recall outstanding');
         recall.should.have.property('vin').eql(vin);
         done();
       });
     });
 
-    it('and user provide upper case text and vehicle has not a recall and "No Recall Outstanding" message is provided.', (done) => {
+    it('and user provide upper case text and vehicle has not a recall and "No recall found" message is provided.', (done) => {
       const vin = 'AISXXXTEST1239617';
       const marque = 'AUDI';
 
       const recallPromise = vehicles.getRecall(vin, marque);
       recallPromise.then((recall) => {
         recall.should.have.property('status').eql(200);
-        recall.should.have.property('status_description').eql('No Recall Outstanding');
+        recall.should.have.property('status_description').eql('No recall found');
         recall.should.have.property('vin').eql(vin);
         done();
       });
@@ -40,33 +40,33 @@ describe('When checking if vehicle has a outstanding recall', () => {
       const recallPromise = vehicles.getRecall(vin, marque);
       recallPromise.then((recall) => {
         recall.should.have.property('status').eql(200);
-        recall.should.have.property('status_description').eql('No Recall Outstanding');
+        recall.should.have.property('status_description').eql('No recall found');
         recall.should.have.property('vin').eql(vin);
         done();
       });
     });
 
-    it('and user provide mixed case text and vehicle has a recall and "Recall Outstanding" message is provided.', (done) => {
+    it('and user provide mixed case text and vehicle has a recall and "Recall outstanding" message is provided.', (done) => {
       const vin = 'AISxxxTEst1239607';
       const marque = 'RENauLT';
 
       const recallPromise = vehicles.getRecall(vin, marque);
       recallPromise.then((recall) => {
         recall.should.have.property('status').eql(201);
-        recall.should.have.property('status_description').eql('Recall Outstanding');
+        recall.should.have.property('status_description').eql('Recall outstanding');
         recall.should.have.property('vin').eql(vin);
         done();
       });
     });
 
-    it('and user provide mixed case text and vehicle has not a recall and "No Recall Outstanding" message is provided.', (done) => {
+    it('and user provide mixed case text and vehicle has not a recall and "No recall found" message is provided.', (done) => {
       const vin = 'AISxxxTEst1239617';
       const marque = 'AUdi';
 
       const recallPromise = vehicles.getRecall(vin, marque);
       recallPromise.then((recall) => {
         recall.should.have.property('status').eql(200);
-        recall.should.have.property('status_description').eql('No Recall Outstanding');
+        recall.should.have.property('status_description').eql('No recall found');
         recall.should.have.property('vin').eql(vin);
         done();
       });

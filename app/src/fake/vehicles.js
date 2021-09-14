@@ -6,7 +6,7 @@ More details in JIRA: BL-6009
 const marquesWithRecall = {
   RENAULT: {
     status: 201,
-    status_description: 'Recall Outstanding',
+    status_description: 'Recall outstanding',
     vin: '',
     vin_recall_status: 'BRAKES',
     last_update: '19022015',
@@ -14,7 +14,7 @@ const marquesWithRecall = {
   },
   VOLKSWAGEN: {
     status: 201,
-    status_description: 'Recall Outstanding',
+    status_description: 'Recall outstanding',
     vin: '',
     vin_recall_status: 'BRAKES',
     last_update: '19022015',
@@ -22,7 +22,7 @@ const marquesWithRecall = {
   },
   ISUZU: {
     status: 201,
-    status_description: 'Recall Outstanding',
+    status_description: 'Recall outstanding',
     vin: '',
     vin_recall_status: 'BRAKES',
     last_update: '19022015',
@@ -30,7 +30,7 @@ const marquesWithRecall = {
   },
   SUBARU: {
     status: 201,
-    status_description: 'Recall Outstanding',
+    status_description: 'Recall outstanding',
     vin: '',
     vin_recall_status: 'BRAKES',
     last_update: '19022015',
@@ -38,7 +38,7 @@ const marquesWithRecall = {
   },
   BMW: {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
@@ -46,7 +46,7 @@ const marquesWithRecall = {
   },
   AUDI: {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
@@ -54,7 +54,7 @@ const marquesWithRecall = {
   },
   PEUGEOT: {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
@@ -62,7 +62,7 @@ const marquesWithRecall = {
   },
   VOLVO: {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
@@ -70,7 +70,7 @@ const marquesWithRecall = {
   },
   DAIHATSU: {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
@@ -78,7 +78,7 @@ const marquesWithRecall = {
   },
   'GREAT WALL': {
     status: 200,
-    status_description: 'No Recall Outstanding',
+    status_description: 'No recall found',
     vin: '',
     vin_recall_status: '',
     last_update: '19022015',
