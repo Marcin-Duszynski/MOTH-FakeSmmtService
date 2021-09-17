@@ -9,7 +9,7 @@ const fakeResponses = require('./fake/responses');
 const path = require('./config/path');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParametersFormatter.middleware);
 app.use(apiKeyVerifier.middleware);
 app.disable('x-powered-by');

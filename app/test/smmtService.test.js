@@ -21,7 +21,10 @@ describe('SMMT service', () => {
     it('when correct api key is provided service status is returned.', (done) => {
       chai.request(service.app)
         .post('/serviceavailability')
-        .send({ apikey: 'localApiKey' })
+        .set('x-api-key', 'localApiKey')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
+        .send({})
         .end((err, res) => {
           if (err) done(err);
 
@@ -37,7 +40,10 @@ describe('SMMT service', () => {
     it('when incorrect api key is provided request unauthorized status is returned.', (done) => {
       chai.request(service.app)
         .post('/serviceavailability')
-        .send({ apikey: 'incorrect api key' })
+        .set('x-api-key', 'incorrect api key')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
+        .send({})
         .end((err, res) => {
           if (err) done(err);
 
@@ -55,7 +61,10 @@ describe('SMMT service', () => {
     it('when correct api key is provided supported marque list is returned.', (done) => {
       chai.request(service.app)
         .post('/marque')
-        .send({ apikey: 'localApiKey' })
+        .set('x-api-key', 'localApiKey')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
+        .send({})
         .end((err, res) => {
           if (err) done(err);
 
@@ -73,7 +82,10 @@ describe('SMMT service', () => {
     it('when incorrect api key is provided marque list is empty and unauthorized status is returned.', (done) => {
       chai.request(service.app)
         .post('/marque')
-        .send({ apikey: 'incorrect api key' })
+        .set('x-api-key', 'incorrect api key')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
+        .send({})
         .end((err, res) => {
           if (err) done(err);
 
@@ -94,8 +106,10 @@ describe('SMMT service', () => {
       it('and vehicle has a outstanding recall then information about it is returned.', (done) => {
         chai.request(service.app)
           .post('/vincheck')
+          .set('x-api-key', 'localApiKey')
+          .set('Accept', 'application/json')
+          .type('application/x-www-form-urlencoded')
           .send({
-            apikey: 'localApiKey',
             vin: 'AISXXXTEST1239607',
             Marque: 'RENAULT',
           })
@@ -116,8 +130,10 @@ describe('SMMT service', () => {
       it('and vehicle has not a outstanding recall then information about it is provided.', (done) => {
         chai.request(service.app)
           .post('/vincheck')
+          .set('x-api-key', 'localApiKey')
+          .set('Accept', 'application/json')
+          .type('application/x-www-form-urlencoded')
           .send({
-            apikey: 'localApiKey',
             vin: 'AISXXXTEST1239617',
             Marque: 'AUDI',
           })
@@ -139,8 +155,10 @@ describe('SMMT service', () => {
     it('when incorrect api key is provided then unauthorized status is returned.', (done) => {
       chai.request(service.app)
         .post('/vincheck')
+        .set('x-api-key', 'incorrect api key')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
         .send({
-          apikey: 'incorrect api key',
           vin: 'AISXXXTEST1239607',
         })
         .end((err, res) => {
@@ -161,8 +179,10 @@ describe('SMMT service', () => {
     it('when correct api key and unknown marque is provided then invalid marque status is returned.', (done) => {
       chai.request(service.app)
         .post('/vincheck')
+        .set('x-api-key', 'localApiKey')
+        .set('Accept', 'application/json')
+        .type('application/x-www-form-urlencoded')
         .send({
-          apikey: 'localApiKey',
           vin: 'AISXXXTEST1239617',
           Marque: 'ARUIN',
         })

@@ -6,7 +6,7 @@ const fakeResponses = require('../fake/responses');
 const config = configLoader.load(process.env);
 
 function check(req, next, failureCallback) {
-  const apiKey = req.body.apikey;
+  const apiKey = req.get('x-api-key');
 
   if (apiKey === config.apiKey) {
     next();
